@@ -1,0 +1,17 @@
+name: Manual Greeting
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'あなたの名前を入力してください'
+        required: true
+        default: 'GitHubユーザー'
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Greet the user
+        run: echo "こんにちは、${{ github.event.inputs.name }} さん！"
