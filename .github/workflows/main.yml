@@ -1,31 +1,30 @@
-
 name: Time-based Greeting
 
 on:
-  workflow_dispatch:
-    inputs:
-      time_of_day:
-        description: '時間帯を選んでください'
-        required: true
-        type: choice
-        options:
-          - 朝
-          - 昼
-          - 夜
+  workflow_dispatch:
+    inputs:
+      time_of_day:
+        description: '時間帯を選んでください'
+        required: true
+        type: choice
+        options:
+          - 朝
+          - 昼
+          - 夜
 
 jobs:
-  greet:
-    runs-on: ubuntu-latest
+  greet:
+    runs-on: ubuntu-latest
 
-    steps:
-      - name: 挨拶を表示
-        run: |
-          if [ "${{ github.event.inputs.time_of_day }}" = "朝" ]; then
-            echo "☀️ おはようございます！"
-          elif [ "${{ github.event.inputs.time_of_day }}" = "昼" ]; then
-            echo "🌞 こんにちは！"
-          elif [ "${{ github.event.inputs.time_of_day }}" = "夜" ]; then
-            echo "🌙 こんばんは！"
-          else
-            echo "🤖 不明な時間帯です"
-          fi
+    steps:
+      - name: 挨拶を表示
+        run: |
+          if [ "${{ github.event.inputs.time_of_day }}" = "朝" ]; then
+            echo "☀️ おはようございます！"
+          elif [ "${{ github.event.inputs.time_of_day }}" = "昼" ]; then
+            echo "🌞 こんにちは！"
+          elif [ "${{ github.event.inputs.time_of_day }}" = "夜" ]; then
+            echo "🌙 こんばんは！"
+          else
+            echo "🤖 不明な時間帯です"
+          fi
