@@ -1,12 +1,17 @@
-name: Manual Trigger Workflow
+name: Manual Greeting
 
 on:
-  workflow_dispatch:  # 手動トリガー
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'あなたの名前を入力してください'
+        required: true
+        default: 'GitHubユーザー'
 
 jobs:
-  run-manually:
+  greet:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Say Hello Manually
-        run: echo "👋 This workflow was triggered manually!"
+      - name: Greet the user
+        run: echo "こんにちは、${{ github.event.inputs.name }} さん！"
